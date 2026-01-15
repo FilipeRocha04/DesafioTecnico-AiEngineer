@@ -1,6 +1,6 @@
 import shutil
 
-# Cores ANSI simples
+
 CSI = "\x1b["
 RESET = CSI + "0m"
 GREEN = CSI + "32m"
@@ -12,14 +12,13 @@ BOLD = CSI + "1m"
 
 
 def _print_boxed(text: str, title: str = None, color: str = WHITE) -> None:
-    """Imprime um bloco com borda simples e título opcional."""
-    # largura do terminal
+  
     width = shutil.get_terminal_size((80, 20)).columns
     lines = text.splitlines() or [""]
     max_line = max(len(line) for line in lines)
     box_width = min(max_line, width - 4)
 
-    # header
+ 
     if title:
         header = f" {title} "
         print(color + "┌" + "─" * (len(header)) + "┐" + RESET)
@@ -28,15 +27,15 @@ def _print_boxed(text: str, title: str = None, color: str = WHITE) -> None:
     else:
         print(color + "┌" + "─" * (box_width + 2) + "┐" + RESET)
 
-    # content
+ 
     for line in lines:
-        # wrap long lines simply
+      
         if len(line) <= box_width:
             content = line
             padding = box_width - len(content)
             print(color + "│ " + RESET + content + " " * padding + color + " │" + RESET)
         else:
-            # naive wrap
+            
             start = 0
             while start < len(line):
                 chunk = line[start:start + box_width]
@@ -44,7 +43,7 @@ def _print_boxed(text: str, title: str = None, color: str = WHITE) -> None:
                 print(color + "│ " + RESET + chunk + " " * padding + color + " │" + RESET)
                 start += box_width
 
-    # footer
+  
     if title:
         print(color + "└" + "─" * (len(header)) + "┘" + RESET)
     else:
@@ -52,7 +51,7 @@ def _print_boxed(text: str, title: str = None, color: str = WHITE) -> None:
 
 
 def mostrar_handoff(origem: str, destino: str) -> None:
-    # rótulos amigáveis para agentes
+    
     labels = {
         "orquestrador": "🧭 orquestrador",
         "conhecimento": "🤖 conhecimento",
@@ -77,42 +76,50 @@ def mostrar_agente_ativo(nome: str) -> None:
 
 
 def imprimir_usuario(texto: str) -> None:
-    # prefixo com emoji para o usuário
+   
     _print_boxed(texto, title="👤 Usuário", color=YELLOW)
 
 
-def imprimir_assistente(texto: str) -> None:
-    _print_boxed(texto, title="🤖 IA (assistant)", color=GREEN)
+def imprimir_assistente(texto: str, title: str = "🤖 IA (Agente de conhecimento)") -> None:
+    
+    _print_boxed(texto, title=title, color=GREEN)
 
 
-def imprimir_resposta_formatada(texto: str) -> None:
-    """Se o texto contiver marcações como 'user:' e 'assistant:' quebra em vários blocos
-    e imprime cada um com o estilo apropriado. Caso contrário, imprime um único bloco
-    de assistant como antes.
-    """
+def imprimir_resposta_formatada(texto: str, agent_label: str | None = None) -> None:
+    
     import re
 
     if not texto or not isinstance(texto, str):
-        imprimir_assistente(str(texto))
+        
+        if agent_label == "calculadora":
+            imprimir_assistente(str(texto), title="🧮 calculadora")
+        else:
+            imprimir_assistente(str(texto))
         return
 
-    # detectar padrões tipo 'user: ...' e 'assistant: ...' (case-insensitive)
+    
     pattern = re.compile(r"(?i)(user|assistant):\s*(.*?)(?=(?:\n(?:user|assistant):)|\Z)", re.S)
     matches = list(pattern.finditer(texto))
 
     if not matches:
-        # texto normal
-        imprimir_assistente(texto)
+        
+        if agent_label == "calculadora":
+            imprimir_assistente(texto, title="🧮 calculadora")
+        else:
+            imprimir_assistente(texto)
         return
 
-    # imprimir cada segmento conforme o role
+ 
     for m in matches:
         role = m.group(1).lower()
         content = m.group(2).strip()
         if role == "user":
             imprimir_usuario(content)
         else:
-            imprimir_assistente(content)
+            if agent_label == "calculadora":
+                imprimir_assistente(content, title="🧮 calculadora")
+            else:
+                imprimir_assistente(content)
 
 
 def imprimir_info(texto: str) -> None:

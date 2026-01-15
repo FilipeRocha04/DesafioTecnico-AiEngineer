@@ -42,6 +42,11 @@ def log_evento(etapa: str, dados):
     }
 
     titulo = mapa.get(etapa, f"ℹ️ {etapa}")
+
+    
+    if etapa in ("openai_resposta", "openai_resposta_simulada", "openai_chamada"):
+        return
+
     print()
     print(titulo)
 

@@ -20,7 +20,7 @@ def main():
     print("Bem-vindo ao Assistente IA 🤖")
     
     thread_id = "1"
-    # print("Usando thread persistente padrão: '1'\n")
+    
 
     print("Digite 'sair' para encerrar a sessão")
 
@@ -90,10 +90,15 @@ def main():
                 try:
                     from app.ui.terminal_ui import imprimir_resposta_formatada
 
+                    
+                    agent_label_to_pass = agente_ativo if agente_ativo in ("calculadora",) else None
                     if isinstance(resposta, str):
-                        imprimir_resposta_formatada(resposta)
+                        imprimir_resposta_formatada(resposta, agent_label=agent_label_to_pass)
                     else:
-                        imprimir_assistente(str(resposta))
+                        if agent_label_to_pass == "calculadora":
+                            imprimir_assistente(str(resposta), title="🧮 calculadora")
+                        else:
+                            imprimir_assistente(str(resposta))
                 except Exception:
                     imprimir_assistente(str(resposta))
 
@@ -120,10 +125,10 @@ def main():
                     except Exception:
                         pass
 
-            # atualizar estado corrente para o próximo turno
+           
             estado_corrente = resultado
 
-            # salvar apenas se houver thread_id (persistência entre execuções)
+            
             if thread_id:
                 salvar_memoria_curta(thread_id, resultado)
 
