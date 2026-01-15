@@ -70,10 +70,10 @@ Boas práticas aplicadas no projeto:
 
 1. Rode o assistente e faça uma pergunta  (ex.: "Quanto é 2+2?"), a tool calculadora será acionada se enviar uma pergunta como " Quem foi Silvio Santos?" será acionado o agente de conhecimento.
 
-<img width="597" height="590" alt="image" src="https://github.com/user-attachments/assets/dd592885-478b-4bff-a852-eedc937b72a6" />
+<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/dd592885-478b-4bff-a852-eedc937b72a6" />
 
 
-<img width="1032" height="562" alt="image" src="https://github.com/user-attachments/assets/b2f6b057-2405-4f98-8b55-97ed1028e0fc" />
+<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/b2f6b057-2405-4f98-8b55-97ed1028e0fc" />
 
 
 
