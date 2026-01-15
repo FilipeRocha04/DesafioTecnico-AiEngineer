@@ -34,7 +34,7 @@ def main():
             estado_corrente = salvo
 
     while True:
-        pergunta = input("Pergunta: ")
+        pergunta = input("Digite uma Pergunta: ")
         if pergunta.lower().strip() in ("sair", "exit", "quit"):
             print("Encerrando...")
             break
