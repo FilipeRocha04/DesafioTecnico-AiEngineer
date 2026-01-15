@@ -100,7 +100,7 @@ Em resumo, a escolha do LangGraph foi estratégica para mostrar, de forma clara 
 
 
 
- ## O QUE VOCÊ APRENDEU
+ ## O QUE VOCÊ APRENDEU:
 Ao desenvolver este desafio, o principal aprendizado foi entender que construir um assistente de IA não se resume a gerar respostas corretas, mas envolve controlar decisões, fluxo e responsabilidade ao longo de toda a execução. A implementação reforçou a importância de orquestrar agentes de forma explícita, aplicar validações antes de qualquer processamento e tratar ferramentas externas como componentes críticos do sistema, e não apenas como atalhos para o modelo de linguagem. Também ficou evidente como a aplicação de guardrails e middleware desde o início aumenta significativamente a confiabilidade do sistema, impedindo que dados inválidos ou sensíveis avancem no fluxo. Mesmo em um projeto simples, priorizar controle e segurança resulta em uma arquitetura mais previsível, organizada e fácil de evoluir.
 
 ## O QUE FARIA DIFERENTE COM MAIS TEMPO:
