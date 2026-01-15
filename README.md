@@ -68,14 +68,6 @@ Boas práticas aplicadas no projeto:
   - Parâmetros de modelo (nome do modelo, temperatura) podem ser alterados nas configurações do projeto.
 - Local de persistência de memória: o sistema salva histórico localmente para permitir continuidade por thread.
 
-
-
-## Segurança e privacidade
-
-- Nunca commit chaves ou `.env`.
-- Antes de compartilhar logs ou arquivos de memória, remova ou redija dados sensíveis.
-- Prefira armazenar apenas hashes/pseudônimos quando for necessário rastrear itens sem expor o valor original.
-
 ## Testes rápidos
 
 1. Rode o assistente e faça uma pergunta  (ex.: "Quanto é 2+2?"), a tool calculadora será acionada se enviar uma pergunta como " Quem foi Silvio Santos?" será acionado o agente de conhecimento.
