@@ -14,7 +14,7 @@ Siga estes passos no Windows PowerShell:
 
 ```powershell
 git clone https://github.com/FilipeRocha04/DesafioTecnico-AiEngineer.git
-cd assistente-ia
+cd DesafioTecnico-AiEngineer
 
 # criar e ativar virtualenv (Windows PowerShell)
 python -m venv .venv
