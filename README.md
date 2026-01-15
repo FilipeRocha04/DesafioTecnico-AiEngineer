@@ -8,7 +8,7 @@ Projeto de assistente multiagente que orquestra agentes, aplica guardrails para 
 
 O sistema segue uma arquitetura multiagente: um orquestrador classifica as solicitações e faz handoff para agentes especializados. Há uma camada de middleware que intercepta mensagens para logging, métricas e, principalmente, aplicação de guardrails (detecção e tratamento de PII). O histórico de conversas é armazenado localmente para permitir continuidade de contexto entre interações.
 
-#(Quickstart)
+# (Quickstart)
 
 Siga estes passos no Windows PowerShell:
 
