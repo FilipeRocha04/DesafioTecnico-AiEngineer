@@ -58,9 +58,7 @@ Middleware
 
 
 Boas práticas aplicadas no projeto:
-- Aplicar guardrails/middleware antes de qualquer handoff ou persistência.
-- Registrar apenas metadados e IDs; se necessário registrar conteúdo, registrar versões redigidas/mascaradas.
-
+- Guardrails/middleware antes de qualquer handoff ou persistência.
 ## Configuração
 
 - Variáveis importantes:
