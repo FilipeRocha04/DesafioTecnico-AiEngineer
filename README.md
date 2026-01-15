@@ -70,6 +70,13 @@ Boas práticas aplicadas no projeto:
 
 1. Rode o assistente e faça uma pergunta  (ex.: "Quanto é 2+2?"), a tool calculadora será acionada se enviar uma pergunta como " Quem foi Silvio Santos?" será acionado o agente de conhecimento.
 
+<img width="597" height="590" alt="image" src="https://github.com/user-attachments/assets/dd592885-478b-4bff-a852-eedc937b72a6" />
+
+
+<img width="1032" height="562" alt="image" src="https://github.com/user-attachments/assets/b2f6b057-2405-4f98-8b55-97ed1028e0fc" />
+
+
+
 
  ## QUAL FOI SUA LÓGICA DE IMPLEMENTAÇÃO:
 Optei por desenvolver o desafio utilizando LangGraph em vez de LangChain porque o objetivo do teste era demonstrar clareza de raciocínio. O LangGraph me permitiu modelar explicitamente o comportamento do assistente como um fluxo de estados bem definido, deixando claro onde a decisão é tomada, quando um agente é acionado e como a resposta retorna ao usuário. Para um desafio técnico que avalia lógica e organização, essa abordagem torna o raciocínio muito mais transparente do que uma cadeia implícita de chamadas.
