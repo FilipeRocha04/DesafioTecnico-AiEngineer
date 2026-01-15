@@ -8,13 +8,13 @@ Projeto de assistente multiagente que orquestra agentes, aplica guardrails para 
 
 O sistema segue uma arquitetura multiagente: um orquestrador classifica as solicitações e faz handoff para agentes especializados. Há uma camada de middleware que intercepta mensagens para logging, métricas e, principalmente, aplicação de guardrails (detecção e tratamento de PII). O histórico de conversas é armazenado localmente para permitir continuidade de contexto entre interações.
 
-## Rápido (Quickstart)
+# (Quickstart)
 
 Siga estes passos no Windows PowerShell:
 
 ```powershell
 git clone https://github.com/FilipeRocha04/DesafioTecnico-AiEngineer.git
-cd assistente-ia
+cd DesafioTecnico-AiEngineer
 
 # criar e ativar virtualenv (Windows PowerShell)
 python -m venv .venv
@@ -58,23 +58,13 @@ Middleware
 
 
 Boas práticas aplicadas no projeto:
-- Aplicar guardrails/middleware antes de qualquer handoff ou persistência.
-- Registrar apenas metadados e IDs; se necessário registrar conteúdo, registrar versões redigidas/mascaradas.
-
+- Guardrails/middleware antes de qualquer handoff ou persistência.
 ## Configuração
 
 - Variáveis importantes:
   - `OPENAI_API_KEY`: chave para chamadas a provedores de LLM.( Nesse projeto usei o modelo gpt-4o-mini)
   - Parâmetros de modelo (nome do modelo, temperatura) podem ser alterados nas configurações do projeto.
 - Local de persistência de memória: o sistema salva histórico localmente para permitir continuidade por thread.
-
-
-
-## Segurança e privacidade
-
-- Nunca commit chaves ou `.env`.
-- Antes de compartilhar logs ou arquivos de memória, remova ou redija dados sensíveis.
-- Prefira armazenar apenas hashes/pseudônimos quando for necessário rastrear itens sem expor o valor original.
 
 ## Testes rápidos
 
